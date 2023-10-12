@@ -1,0 +1,48 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    "schedule:weekends",
+    ":semanticCommits",
+    "docker:pinDigests"
+  ],
+  "ignoreUnstable": true,
+  "stabilityDays": 7,
+  "vulnerabilityAlerts": {
+    "labels": [
+      "security"
+    ],
+    "schedule": "at any time"
+  },
+  "baseBranches": [
+    "main"
+  ],
+  "packageRules": [
+    {
+      "groupName": "non-major dependencies",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "labels": [
+        "dependencies"
+      ]
+    },
+    {
+      "groupName": "major dependencies",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "labels": [
+        "dependencies",
+        "breaking"
+      ]
+    }
+  ]
+}
