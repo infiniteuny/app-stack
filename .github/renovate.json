@@ -20,6 +20,7 @@
   "packageRules": [
     {
       "groupName": "non-major dependencies",
+      "groupSlug": "non-major-dependencies",
       "matchDatasources": [
         "docker"
       ],
@@ -33,6 +34,7 @@
     },
     {
       "groupName": "major dependencies",
+      "groupSlug": "major-dependencies",
       "matchDatasources": [
         "docker"
       ],
